@@ -153,7 +153,7 @@ const sameCard = () => {
 Your final score is:  ${score}`);
       } else {
         alert(`You won!! 🥳 with ${failed} failed attempts.
-Your final score is:  ${score} , ${count}`);
+Your final score is:  ${score} `);
       }
       document.location.reload();
       score = 0;
