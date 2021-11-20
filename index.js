@@ -1,5 +1,5 @@
 let score = 0;
-let count = 0;
+let count = false;
 let d;
 let failed = 0;
 
@@ -42,6 +42,7 @@ let images = [
 function renderImages(img) {
   score = 0;
   failed = 0;
+  console.log(count);
   scoreEl.textContent = `Score: ${score}`;
   failedEl.textContent = `Failed: ${failed}`;
   shuffleArray();
@@ -77,15 +78,15 @@ function shuffleArray() {
     images[j] = temp;
   }
 }
-
+let gameStarted = false;
 function show() {
   console.log(count);
-  if (count > 1) {
+  if (gameStarted) {
     alert(`you can only view cards at the start of a new game!`);
     return;
   }
 
-  if (count > 0) {
+  if (count) {
     alert(`cannot view cards more than once!!
 you can start the game again if you want!`);
     return;
@@ -97,7 +98,7 @@ you can start the game again if you want!`);
     imgEl[i].classList.add("open");
   }
   d = setTimeout(hide, 800);
-  count++;
+  count = true;
 }
 
 function hide() {
@@ -113,8 +114,8 @@ const imageClicked = (ct) => {
   let imgEl = document.getElementById(`${ct}`);
   imgEl.style.display = "block";
   imgEl.classList.add("open");
+  gameStarted = true;
   sameCard();
-  count += 2;
 };
 
 const sameCard = () => {
@@ -133,6 +134,7 @@ const sameCard = () => {
         c1.classList.remove("open");
         c2.classList.add("valid");
         c2.classList.remove("open");
+        console.log(count);
       }
       score += 10;
     } else {
@@ -144,14 +146,14 @@ const sameCard = () => {
   let validEl = document.querySelectorAll(".valid");
   if (validEl.length === 6) {
     setTimeout(function () {
-      if (failed === 0 && count === 0) {
-        alert(`You won!! 🥳 with all perfect guesses!!`);
+      if (failed === 0 && !count) {
+        alert(`You won!! 🥳 with all perfect guesses!`);
       } else if (failed === 1) {
         alert(`You won!! 🥳 with ${failed} failed attempt.
 Your final score is:  ${score}`);
       } else {
         alert(`You won!! 🥳 with ${failed} failed attempts.
-Your final score is:  ${score}`);
+Your final score is:  ${score} , ${count}`);
       }
       document.location.reload();
       score = 0;
