@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-image: url("https://media.istockphoto.com/vectors/playing-cards-seamless-pattern-card-deck-repeated-background-vector-id875428238");
+  background-repeat: repeat;
+  background-size: auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: lighten;
+  font-family: "Roboto", sans-serif;
+}
+
+.header {
+  color: white;
+  padding: 10px 0;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+}
+
+.main {
+  text-align: center;
+}
+
+.container img {
+  max-width: 10.5vw;
+}
+.images {
+  width: 70vw;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 30px;
+  justify-items: center;
+}
+
+.renderedImage {
+  display: none;
+}
+.container {
+  display: block !important;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Card_back_05a.svg/1200px-Card_back_05a.svg.png");
+  background-size: cover;
+  width: 10.5vw;
+  height: 15.6vw;
+}
+
+.container:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 1px 1px rgb(255, 119, 119), 2px 2px rgb(255, 119, 119),
+    3px 3px rgb(255, 119, 119), 4px 4px rgb(255, 119, 119),
+    5px 5px rgb(255, 119, 119);
+  transition: 0.5s;
+}
+
+.valid {
+  display: block !important;
+}
+.images {
+  margin-top: 2%;
+}
+.gridWrapper {
+  display: flex;
+  justify-content: center;
+}
+button {
+  border: none;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: rgb(255, 119, 119);
+  /* box-shadow: -4px -4px rgb(170, 200, 255); */
+  color: rgb(41, 57, 87);
+  cursor: pointer;
+}
+#showBtn {
+  display: none;
+}
+p {
+  margin: 5px;
+  font-size: 1.2em;
+}
+button:hover {
+  box-shadow: 1px 1px rgb(255, 119, 119), 2px 2px rgb(255, 119, 119),
+    3px 3px rgb(255, 119, 119), 4px 4px rgb(255, 119, 119),
+    5px 5px rgb(255, 119, 119);
+  color: rgb(107, 62, 62);
+  background-color: rgb(170, 200, 255);
+  border-radius: 10px;
+  transition: 0.5s;
+}
+h1 {
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .container img {
+    max-width: 20.5vw;
+  }
+
+  .container {
+    width: 20.5vw;
+    height: 30.6vw;
+  }
+
+  .images {
+    margin-top: 10vh;
+    width: 100vw;
+  }
+}
