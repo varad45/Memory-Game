@@ -42,7 +42,7 @@ let images = [
 function renderImages(img) {
   score = 0;
   failed = 0;
-  console.log(count);
+
   scoreEl.textContent = `Score: ${score}`;
   failedEl.textContent = `Failed: ${failed}`;
   shuffleArray();
@@ -80,7 +80,6 @@ function shuffleArray() {
 }
 let gameStarted = false;
 function show() {
-  console.log(count);
   if (gameStarted) {
     alert(`you can only view cards at the start of a new game!`);
     return;
@@ -91,7 +90,7 @@ function show() {
 you can start the game again if you want!`);
     return;
   }
-  console.log(count);
+
   let imgEl = document.querySelectorAll(".renderedImage");
   for (let i = 0; i < imgEl.length; i++) {
     imgEl[i].style.display = "block";
@@ -134,7 +133,6 @@ const sameCard = () => {
         c1.classList.remove("open");
         c2.classList.add("valid");
         c2.classList.remove("open");
-        console.log(count);
       }
       score += 10;
     } else {
@@ -153,7 +151,7 @@ const sameCard = () => {
 Your final score is:  ${score}`);
       } else {
         alert(`You won!! 🥳 with ${failed} failed attempts.
-Your final score is:  ${score} `);
+Your final score is:  ${score}`);
       }
       document.location.reload();
       score = 0;
